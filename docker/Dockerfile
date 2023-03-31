@@ -7,25 +7,37 @@ FROM osrf/ros:noetic-desktop-full as vision_project_min
 
 # Pass in a command line arguement to set the branch to use
 # e.g., docker build --build-arg vision_project_branch=master --target vision_project_dev .
-ARG vision_project_branch="add-reading-task-data"
-ARG vision_project_remote="https://github.com/robotpt/vision-project.git"
+ARG vision_project_branch="add-reading-task-data-v2"
+ARG vision_project_remote="https://github.com/codionysus/robotpt-vision.git"
 ARG INSTALL_SCRIPT="install_deps.sh"
 
 # Install dependencies
 COPY ./scripts/${INSTALL_SCRIPT} /tmp/${INSTALL_SCRIPT}
 RUN /tmp/${INSTALL_SCRIPT}
 
-# Setup the ROS workspace
+# Original Setup the ROS workspace
+# ENV ROS_WS="/root/catkin_ws"
+# RUN \
+	#mkdir -p ${ROS_WS}/src \
+	#&& cd ${ROS_WS}/src \
+	#&& git clone --branch ${vision_project_branch} --recurse-submodules ${vision_project_remote} \
+	#&& git clone https://github.com/robotpt/cordial.git \
+	#&& git clone https://github.com/robotpt/qt-robot.git \
+	#&& git clone --branch add-webcam-script https://github.com/robotpt/ros-data-capture.git \
+	#&& git clone --branch ros1 https://github.com/RobotWebTools/rosbridge_suite.git \
+	#&& git clone https://github.com/audrow/mongodb-statedb.git \
+	#&& cd mongodb-statedb && /bin/bash -c "python3.8 -m pip install ." \
+	#&& cd ../..; /bin/bash -c "source /opt/ros/noetic/setup.bash && catkin_make"
+
+# QTV2 Setup ROS workspace
 ENV ROS_WS="/root/catkin_ws"
 RUN \
 	mkdir -p ${ROS_WS}/src \
 	&& cd ${ROS_WS}/src \
 	&& git clone --branch ${vision_project_branch} --recurse-submodules ${vision_project_remote} \
-	&& git clone https://github.com/codionysus/robotpt-cordial.git \
-	&& git clone https://github.com/codionysus/robotpt-qtrobot.git \
-	# && git clone https://github.com/robotpt/cordial.git \
-	# && git clone https://github.com/robotpt/qt-robot.git \
-	&& git clone --branch add-webcam-script https://github.com/robotpt/ros-data-capture.git \
+	&& git clone --branch master-qtv2 https://github.com/codionysus/robotpt-cordial.git \
+	&& git clone --branch master-qtv2 https://github.com/codionysus/robotpt-qtrobot.git \	
+	&& git clone --branch add-webcam-script-2 https://github.com/codionysus/robotpt-ros-data-capture.git \
 	&& git clone --branch ros1 https://github.com/RobotWebTools/rosbridge_suite.git \
 	&& git clone https://github.com/audrow/mongodb-statedb.git \
 	&& cd mongodb-statedb && /bin/bash -c "python3.8 -m pip install ." \
