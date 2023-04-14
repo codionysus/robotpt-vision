@@ -133,7 +133,7 @@
                 "content": "{'db': 'user name', 'default value': ''}, how is it going with your magnifier?",
                 "options": ["10", "8", "6", "4", "2", "0", "Replay"],
                 "message_type": "image",
-                "args": ["https://drive.google.com/uc?export=view&id=1p9IkFzCCIqsdgdhAvVefK2E1d0lPObcO"]
+                "args": ["https://drive.google.com/uc?export=view&id=1IqBzwomkiRG-0MGYQEtGmo9VBH6j2_iF"]
             },
             "excellent": {
                 "transitions": ["exit"],
@@ -362,7 +362,7 @@
                 "content": "Tell me, how do you think you did on that reading task?",
                 "options": ["10", "8", "6", "4", "2", "0", "Replay"],
                 "message_type": "image",
-                "args": ["https://drive.google.com/uc?export=view&id=1p9IkFzCCIqsdgdhAvVefK2E1d0lPObcO"],
+                "args": ["https://drive.google.com/uc?export=view&id=1IqBzwomkiRG-0MGYQEtGmo9VBH6j2_iF"],
                 "result_db_key": "feelings index"
             },
             "ask for spoken self report": {
