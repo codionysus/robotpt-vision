@@ -31,9 +31,7 @@
                 "content": "Tell me, how did you feel about that mindfulness session?",
                 "options": ["10", "8", "6", "4", "2", "0", "Replay"],
                 "message_type": "image",
-                "args": [
-                    "https://drive.google.com/uc?export=view&id=1p9IkFzCCIqsdgdhAvVefK2E1d0lPObcO"
-                ],
+                "args": ["https://drive.google.com/uc?export=view&id=1IqBzwomkiRG-0MGYQEtGmo9VBH6j2_iF"],
                 "result_db_key": "mindfulness rating"
             }
         },
